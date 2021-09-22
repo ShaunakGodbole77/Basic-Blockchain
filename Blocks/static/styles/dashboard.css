@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(dashboard.jpg);
+    background-position: center;
+    background-size:cover ;
+    position:relative;
+
+}
+html, body{
+    height:100%
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.container{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    text-decoration: none;
+    padding: 20px 50px ;
+    font-size: 1.25rem;
+    position: relative;
+    margin: 32px;
+}
+
+/* Button 1*/
+.btn-1{
+    background: rgb(67, 139, 130);
+    color: #fff;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.btn-1::after, .btn-1::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: rgb(6, 73, 56);
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+
+}
+.btn-1:hover{
+    transform: translate(-12px,-12px)
+}
+.btn-1:hover::after{
+    transform: translate(6px,6px)
+}
+.btn-1:hover::before{
+    transform: translate(12px,12px)
+}
+
+/* Button 2*/
+.btn-2{
+    background: rgb(104, 39, 39);
+    color: #fff;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.btn-2::after, .btn-2::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: rgb(88, 23, 23);
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+
+}
+.btn-2:hover{
+    transform: translate(-12px,-12px)
+}
+.btn-2:hover::after{
+    transform: translate(6px,6px)
+}
+.btn-2:hover::before{
+    transform: translate(12px,12px)
+}
+
+
+/* Button 3*/
+.btn-3{
+    background: rgb(140, 141, 58);
+    color: #fff;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.btn-3::after, .btn-3::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: rgb(38, 129, 61);
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+
+}
+.btn-3:hover{
+    transform: translate(-12px,-12px)
+}
+.btn-3:hover::after{
+    transform: translate(6px,6px)
+}
+.btn-3:hover::before{
+    transform: translate(12px,12px)
+}
+
+
+/* Button 4*/
+.btn-4{
+    background: rgb(221, 34, 34);
+    color: #fff;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+.btn-4::after, .btn-4::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: rgb(126, 18, 18);
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+
+}
+.btn-4:hover{
+    transform: translate(-12px,-12px)
+}
+.btn-4:hover::after{
+    transform: translate(6px,6px)
+}
+.btn-4:hover::before{
+    transform: translate(12px,12px)
+}

@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+</head>
+
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    table{
+        position: absolute;
+        left: 50%;
+        /* top: 30%; */
+        top: 45%;
+        transform: translate(-50%, -50%);
+        border-collapse: collapse;
+        width: 800px;
+        height: 100px;
+        border: 1px solid #bdc3c7;
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    tr{
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+    th, td{
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    #header{
+        background-color: #16a085;
+        color: #fff;
+    }
+
+
+    h1{
+        font-weight: 600;
+        text-align: center;
+        background-color: #16a085;
+        color: #fff;
+        padding: 10px 0px;
+
+    }
+
+    tr:hover{
+        background-color: #f5f5f5;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .btn{
+        text-decoration: none;
+        padding: 15px 38px ;
+        font-size: 1.25rem;
+        position: absolute;
+        margin-left: 1100px;
+    }
+    .btn-1{
+        background: rgb(67, 139, 130);
+        color: #fff;
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+        margin-top: 35%;
+        margin-right: 20px;
+    }
+    .input{
+        border: 0;
+        border-bottom: 1px solid #3fb6a8;
+        width: 30%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.0em;
+        padding: 7px 0;
+        color: #070707;
+        outline: none;
+        font-weight: bold;
+        margin-top: 550px;
+        margin-left: 40%;
+    }
+    @media only screen and (max-width: 768px){
+        table{
+            width: 90%;
+
+        }
+    }
+
+</style>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>Transaction History</h1>
+    <hr>
+    <table>
+        <tr id="header">
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Amount</th>
+            <th>Transaction ID</th>
+        </tr>
+            {% for row in rows %}
+                <tr>
+                <td>{{row["Sender"]}}</td>
+                <td>{{row["Reciever"]}}</td>
+                <td> {{ row["Value"]}}</td>
+                <td>{{row['TransactionID']}}</td>
+                </tr>
+            {% endfor %}
+
+    </table>
+
+
+    <form action="{{ url_for('reportpage')}}" id="login" class="input-group" method = "POST">
+        <input type="text" class="input" name = "fraudMailId" placeholder="Enter the Email of the person to be reported">
+            <button type="submit" class="submit-btn">Report</button>
+    </form>
+
+</body>
+</html>

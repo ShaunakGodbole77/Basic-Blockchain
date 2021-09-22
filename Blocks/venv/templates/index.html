@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Login And Registration Form-KSFB</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/style.css')}}">
+
+</head>
+<body>
+    
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+    <div class="hero">
+        <p>
+            <font size='8' style="color: chartreuse;"><center>Welcome to the official website of </center> </font><br>
+           <b><u> <i><font size='8' style="color:coral "><center> KEEP SAFE FAMILY BANK!!</center></font></i></u></b>
+        </p>
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()"> Register</button>
+
+
+            </div>
+           
+            <form action="{{ url_for('signin')}}" id="login" class="input-group" method = "POST">
+                <input type="email" class="input-field" placeholder="Email Id" name="email" required>
+                <input type="password" class="input-field" placeholder="Enter Password" name="pass" required>
+                <input type="checkbox" class="chech-box"><span>
+                    Remember Password</span>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <form action="{{ url_for('register')}}" id="register" class="input-group" method="POST">
+                <input type="text" class="input-field" placeholder="Name as per Aadhar Card" name="Aname" required>
+                <input type="text" class="input-field" placeholder="Contact Number" name="Cnumber" required>
+                <input type="email" class="input-field" placeholder="Email Id" name="email" required>
+                <input type="password" class="input-field" placeholder="Enter Password" name="pass" required>
+                <input type="password" class="input-field" placeholder="Confirm Password" required>
+                <input type="text" class="input-field" placeholder="Aadhar number" name="aadhar" required>
+                <input type="text" class="input-field" placeholder="Pan number" name="pan" required>
+                <input type="text" class="input-field" placeholder="Passport number" name="passport" required>
+                <input type="checkbox" class="chech-box" required><span>
+                   I agree to the terms and conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+        
+
+    </div>
+    <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+
+    }
+    function login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+
+    }
+
+
+    </script>
+
+</body>
+</html>

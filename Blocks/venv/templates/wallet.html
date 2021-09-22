@@ -1,0 +1,123 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Wallet</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/wallet.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='fontawesome/css/all.css')}}">
+
+    </head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab">
+                    <i class="fas fa-suitcase"></i>
+                </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="fas fa-plus"></i>
+                
+                </a>
+                <a href="{{url_for('reportpage')}}" onclick="tabs(2)" class="tab">
+                    <i class="fas fa-credit-card"></i>
+                
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Check Balance</h1>
+                <h2>Full Name:  <br> <input type="text" class="input" value= {{ Name }} readonly></h2>
+                <h2>Balance:  <br> <input type="number" class="input" value={{ Balance }} readonly></h2>
+            
+
+            </div>
+            <div class="payment tabShow">
+                <h2> My Balance: {{ Balance }}</h2>
+                <form action="{{ url_for('sendtransaction')}}" id="login" class="input-group" method = "POST">
+                <h1>Send Transaction</h1>
+                <h2>Payee Email:   <br> <input type="text" class="input" value="" name = "payeeemail"></h2>                
+                <h2>Value:   <br> <input type="text" class="input" value=""  name = "value"></h2>              
+                <button class="btn">SEND</button>
+            </form>
+
+
+            </div>
+            <div class="Subscription tabShow">
+                <p1>
+                    Hope you are redirected to a new page!!
+                </p1>
+
+
+            </div>
+            <div class="privacy tabShow">
+                <h1>Privacy Settings</h1>
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date:<br> <p>May 12,2019</p></h2>
+               
+                <h2>Payment Date:<br><p>May 12,2019</p></h2>
+                
+               
+                <button class="btn">Update</button>
+
+
+            </div>
+            <div class="settings tabShow">
+                <h1>Account Settings</h1>
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+                <h2>Payment Date: <br><p>May 12,2019</p></h2>
+                
+               
+                <button class="btn">Update</button>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        const tabBtn = document.querySelectorAll(".tab");
+        const tab = document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex){
+            tab.forEach(function(node){
+                node.style.display = "none";
+            });
+            tab[panelIndex].style.display = "block";
+        }
+        tabs(0);
+    </script>
+    <script>
+        $(".tab").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    </script>
+</body>
+
+
+
+
+</html>
